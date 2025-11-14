@@ -4,84 +4,101 @@
  */
 
 import { createLogger } from '@common/logger';
-import { MessageType, Message, MessageResponse } from '@common/types';
+import { MessageType } from '@common/types';
+import { MessageRouter } from '@common/messaging';
+import { storageService } from './storageService';
+import type { UserProfile, ProfileData, Settings } from '@common/types';
 
 const logger = createLogger('Background');
 
-logger.info('Background service worker initialized');
-
-// Message listener
-chrome.runtime.onMessage.addListener(
-  (
-    message: Message,
-    sender: chrome.runtime.MessageSender,
-    sendResponse: (response: MessageResponse) => void
-  ) => {
-    logger.debug('Received message:', message.type, 'from', sender.tab?.id);
-
-    // Handle messages asynchronously
-    handleMessage(message, sender)
-      .then((response) => {
-        sendResponse(response);
-      })
-      .catch((error) => {
-        logger.error('Error handling message:', error);
-        sendResponse({
-          success: false,
-          error: error instanceof Error ? error.message : 'Unknown error',
-          requestId: message.requestId,
-        });
-      });
-
-    // Return true to indicate async response
-    return true;
-  }
-);
+// Initialize message router
+const router = new MessageRouter();
 
 /**
- * Message handler router
+ * Initialize background service
  */
-async function handleMessage(
-  message: Message,
-  _sender: chrome.runtime.MessageSender
-): Promise<MessageResponse> {
-  switch (message.type) {
-    case MessageType.GET_PROFILE:
-      // TODO: Implement get profile
-      return { success: true, data: null };
+async function initialize() {
+  try {
+    // Initialize storage
+    await storageService.initialize();
 
-    case MessageType.UPDATE_PROFILE:
-      // TODO: Implement update profile
-      return { success: true };
+    // Set up message handlers
+    setupMessageHandlers();
 
-    case MessageType.GET_SETTINGS:
-      // TODO: Implement get settings
-      return { success: true, data: null };
+    // Start listening for messages
+    router.listen();
 
-    case MessageType.UPDATE_SETTINGS:
-      // TODO: Implement update settings
-      return { success: true };
-
-    case MessageType.AUTOFILL_REQUEST:
-      // TODO: Implement autofill
-      return { success: true };
-
-    default:
-      logger.warn('Unknown message type:', message.type);
-      return {
-        success: false,
-        error: 'Unknown message type',
-      };
+    logger.info('Background service worker initialized');
+  } catch (error) {
+    logger.error('Failed to initialize background service:', error);
   }
 }
 
+/**
+ * Setup message handlers
+ */
+function setupMessageHandlers() {
+  // Get active profile
+  router.on(MessageType.GET_PROFILE, async () => {
+    const profile = await storageService.getActiveProfile();
+    return profile;
+  });
+
+  // Update profile
+  router.on<{ profileId: string; updates: Partial<ProfileData> }>(
+    MessageType.UPDATE_PROFILE,
+    async (payload) => {
+      if (!payload || !payload.profileId) {
+        throw new Error('Profile ID is required');
+      }
+      await storageService.updateProfile(payload.profileId, payload.updates);
+      return { success: true };
+    }
+  );
+
+  // Save new profile
+  router.on<UserProfile>(MessageType.SAVE_PROFILE, async (payload) => {
+    if (!payload) {
+      throw new Error('Profile data is required');
+    }
+    await storageService.saveProfile(payload);
+    return { success: true };
+  });
+
+  // Get settings
+  router.on(MessageType.GET_SETTINGS, async () => {
+    const settings = await storageService.getSettings();
+    return settings;
+  });
+
+  // Update settings
+  router.on<Partial<Settings>>(MessageType.UPDATE_SETTINGS, async (payload) => {
+    if (!payload) {
+      throw new Error('Settings data is required');
+    }
+    await storageService.updateSettings(payload);
+    return { success: true };
+  });
+
+  // Autofill request (placeholder for Phase 4)
+  router.on(MessageType.AUTOFILL_REQUEST, async () => {
+    logger.info('Autofill request received (not yet implemented)');
+    return { success: false, message: 'Autofill not yet implemented' };
+  });
+
+  logger.debug('Message handlers registered');
+}
+
 // Installation handler
-chrome.runtime.onInstalled.addListener((details) => {
+chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason === 'install') {
-    logger.info('Extension installed');
-    // TODO: Initialize default storage
+    logger.info('Extension installed - initializing storage');
+    await storageService.initialize();
   } else if (details.reason === 'update') {
     logger.info('Extension updated');
-    // TODO: Handle migration if needed
+    // Handle migration if needed in future versions
   }
 });
+
+// Start the service
+initialize();
