@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenFillIQ</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">OpenFillIQ</h1>
+        <p class="subtitle">Intelligent Form Filling</p>
+      </header>
+
+      <main class="main">
+        <div class="status">
+          <span class="status-label">Status:</span>
+          <span class="status-indicator" id="status">Enabled</span>
+        </div>
+
+        <div class="profile-section">
+          <h2>Profile Information</h2>
+          <p class="info-text">Manage your autofill profile data</p>
+          <button class="btn btn-primary" id="manageProfile">Manage Profile</button>
+        </div>
+
+        <div class="quick-actions">
+          <button class="btn btn-secondary" id="toggleExtension">Disable Extension</button>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <small>All data stored locally & encrypted</small>
+      </footer>
+    </div>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>
