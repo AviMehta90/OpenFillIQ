@@ -140,20 +140,20 @@ No external service dependencies.
 
 ```
 /extension
-  /content
-    formDetector.ts
-    classifier.ts
-    autofillEngine.ts
-    uiInjector.ts
-  /background
-    storageService.ts
-  /popup
-    popup.html
-    popup.ts
-  /common
-    types.ts
-    crypto.ts
-    logger.ts
+ /content
+ formDetector.ts
+ classifier.ts
+ autofillEngine.ts
+ uiInjector.ts
+ /background
+ storageService.ts
+ /popup
+ popup.html
+ popup.ts
+ /common
+ types.ts
+ crypto.ts
+ logger.ts
 manifest.json
 ```
 

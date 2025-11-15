@@ -80,15 +80,15 @@ if (!fs.existsSync(iconsDir)) {
 console.log('Creating placeholder icons...');
 
 createPNG(16, path.join(iconsDir, 'icon-16.png'));
-console.log('✓ Created icon-16.png');
+console.log(' Created icon-16.png');
 
 createPNG(32, path.join(iconsDir, 'icon-32.png'));
-console.log('✓ Created icon-32.png');
+console.log(' Created icon-32.png');
 
 createPNG(48, path.join(iconsDir, 'icon-48.png'));
-console.log('✓ Created icon-48.png');
+console.log(' Created icon-48.png');
 
 createPNG(128, path.join(iconsDir, 'icon-128.png'));
-console.log('✓ Created icon-128.png');
+console.log(' Created icon-128.png');
 
-console.log('\n✓ All icons created successfully!');
+console.log('\n All icons created successfully!');

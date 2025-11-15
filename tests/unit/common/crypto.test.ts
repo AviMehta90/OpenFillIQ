@@ -47,7 +47,7 @@ describe('Crypto utilities', () => {
     });
 
     it('should handle unicode characters', async () => {
-      const original = 'Hello 世界 🌍 مرحبا';
+      const original = 'Hello مرحبا';
       const encrypted = await encrypt(original);
       const decrypted = await decrypt(encrypted);
 

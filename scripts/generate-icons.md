@@ -10,10 +10,11 @@ Visit: https://www.favicon-generator.org/ or https://realfavicongenerator.net/
 2. Generate icons in multiple sizes
 3. Download and extract to `public/icons/`
 4. Rename files to:
-   - `icon-16.png`
-   - `icon-32.png`
-   - `icon-48.png`
-   - `icon-128.png`
+
+- `icon-16.png`
+- `icon-32.png`
+- `icon-48.png`
+- `icon-128.png`
 
 ## Option 2: Use Placeholder Service
 
@@ -53,10 +54,10 @@ Search for keywords: "form", "document", "autofill", "lightning"
 - **Brand Colors**: Use purple gradient (#667eea to #764ba2)
 - **Transparent Background**: PNG format required
 - **Concept Ideas**:
-  - Document with checkmark
-  - Form with lightning bolt
-  - Clipboard with sparkles
-  - "F" letter stylized
+- Document with checkmark
+- Form with lightning bolt
+- Clipboard with sparkles
+- "F" letter stylized
 
 ## Temporary Solution
 

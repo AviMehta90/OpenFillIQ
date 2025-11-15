@@ -6,56 +6,56 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 [![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)](./docs/PROJECT_STATUS.md)
 
-## 🎯 Overview
+## Overview
 
 OpenFillIQ is a privacy-first browser extension that provides one-click autofill for any web form. Unlike traditional autofill tools, OpenFillIQ uses intelligent field detection and classification to work reliably across diverse form structures while keeping all data encrypted and stored locally.
 
-## ✨ Features (MVP)
+## Features (MVP)
 
-- 🎯 **Universal Form Detection** - Automatically detects forms across any website
-- 🧠 **Intelligent Field Classification** - Uses heuristic rules to identify field types
-- 🔒 **Local-First & Encrypted** - All data stored locally with AES-256 encryption
-- ⚡ **One-Click Autofill** - Populate entire forms with a single click
-- 🎨 **Clean UI** - Minimalist popup and settings interface
-- 🔄 **Undo Support** - Revert autofilled values if needed
+- **Universal Form Detection** - Automatically detects forms across any website
+- **Intelligent Field Classification** - Uses heuristic rules to identify field types
+- **Local-First & Encrypted** - All data stored locally with AES-256 encryption
+- **One-Click Autofill** - Populate entire forms with a single click
+- **Clean UI** - Minimalist popup and settings interface
+- **Undo Support** - Revert autofilled values if needed
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 OpenFillIQ/
-├── docs/                     # Documentation
-│   ├── PRD.md               # Product Requirements
-│   ├── PS.md                # Problem Statement
-│   └── SRS.md               # Software Requirements
-├── public/                   # Static assets
-│   ├── manifest.json        # Extension manifest (V3)
-│   └── icons/               # Extension icons
-├── src/
-│   ├── common/              # Shared utilities
-│   │   ├── types.ts         # TypeScript definitions
-│   │   ├── constants.ts     # App constants
-│   │   ├── logger.ts        # Logging utility
-│   │   └── crypto.ts        # Encryption utilities
-│   ├── background/          # Background service worker
-│   │   └── index.ts         # Message handling & storage
-│   ├── content/             # Content scripts
-│   │   └── index.ts         # Form detection & autofill
-│   ├── popup/               # Extension popup
-│   │   ├── popup.html
-│   │   ├── popup.css
-│   │   └── popup.ts
-│   └── options/             # Settings page
-│       ├── options.html
-│       ├── options.css
-│       └── options.ts
-├── tests/                   # Test files
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+ docs/ # Documentation
+ PRD.md # Product Requirements
+ PS.md # Problem Statement
+ SRS.md # Software Requirements
+ public/ # Static assets
+ manifest.json # Extension manifest (V3)
+ icons/ # Extension icons
+ src/
+ common/ # Shared utilities
+ types.ts # TypeScript definitions
+ constants.ts # App constants
+ logger.ts # Logging utility
+ crypto.ts # Encryption utilities
+ background/ # Background service worker
+ index.ts # Message handling & storage
+ content/ # Content scripts
+ index.ts # Form detection & autofill
+ popup/ # Extension popup
+ popup.html
+ popup.css
+ popup.ts
+ options/ # Settings page
+ options.html
+ options.css
+ options.ts
+ tests/ # Test files
+ package.json
+ tsconfig.json
+ vite.config.ts
+ README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -66,28 +66,29 @@ OpenFillIQ/
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/AviMehta90/openFillIQ.git
-   cd openFillIQ
-   ```
+```bash
+git clone https://github.com/AviMehta90/openFillIQ.git
+cd openFillIQ
+```
 
 2. **Install dependencies**
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 3. **Build the extension**
 
-   ```bash
-   npm run build
-   ```
+```bash
+npm run build
+```
 
 4. **Load in Chrome**
-   - Open `chrome://extensions/`
-   - Enable "Developer mode"
-   - Click "Load unpacked"
-   - Select the `dist/` folder
+
+- Open `chrome://extensions/`
+- Enable "Developer mode"
+- Click "Load unpacked"
+- Select the `dist/` folder
 
 ### Development
 
@@ -108,7 +109,7 @@ npm run format
 npm run type-check
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### Components
 
@@ -121,18 +122,18 @@ npm run type-check
 
 ```
 Web Page → Content Script → Background Worker → Storage (Encrypted)
-                ↓                    ↑
-          User Interaction    Message Passing
+ ↓ ↑
+ User Interaction Message Passing
 ```
 
-## 🔐 Security
+## Security
 
 - **Zero external requests** - All processing happens locally
 - **AES-256 encryption** - Profile data encrypted at rest
 - **No telemetry** - We don't track anything
 - **Open source** - Code is transparent and auditable
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -145,11 +146,11 @@ npm run test:ui
 npm test -- --coverage
 ```
 
-## 📝 Development Roadmap
+## Development Roadmap
 
 See the main conversation for detailed phase breakdown:
 
-- ✅ Phase 1: Project Setup
+- Phase 1: Project Setup
 - ⏳ Phase 2: Core Infrastructure
 - ⏳ Phase 3: Form Detection & Classification
 - ⏳ Phase 4: Autofill Engine
@@ -157,15 +158,15 @@ See the main conversation for detailed phase breakdown:
 - ⏳ Phase 6: Integration & Testing
 - ⏳ Phase 7: Polish & Launch
 
-## 🤝 Contributing
+## Contributing
 
 This is currently in active development. Contributions welcome after MVP release.
 
-## 📄 License
+## License
 
 MIT License - See LICENSE file for details
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with:
 
@@ -176,4 +177,4 @@ Built with:
 
 ---
 
-**Status**: 🚧 In Development - MVP Phase
+**Status**: In Development - MVP Phase

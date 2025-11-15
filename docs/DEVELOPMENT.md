@@ -104,27 +104,27 @@ npm run type-check
 
 ```
 src/
-├── common/          # Shared utilities and types
-│   ├── types.ts     # TypeScript interfaces and types
-│   ├── constants.ts # App-wide constants
-│   ├── logger.ts    # Logging utility
-│   └── crypto.ts    # Encryption utilities
-│
-├── background/      # Background service worker
-│   └── index.ts     # Message handling, storage coordination
-│
-├── content/         # Content scripts (runs on web pages)
-│   └── index.ts     # Form detection, autofill injection
-│
-├── popup/           # Extension popup UI
-│   ├── popup.html
-│   ├── popup.css
-│   └── popup.ts
-│
-└── options/         # Settings/options page
-    ├── options.html
-    ├── options.css
-    └── options.ts
+ common/ # Shared utilities and types
+ types.ts # TypeScript interfaces and types
+ constants.ts # App-wide constants
+ logger.ts # Logging utility
+ crypto.ts # Encryption utilities
+
+ background/ # Background service worker
+ index.ts # Message handling, storage coordination
+
+ content/ # Content scripts (runs on web pages)
+ index.ts # Form detection, autofill injection
+
+ popup/ # Extension popup UI
+ popup.html
+ popup.css
+ popup.ts
+
+ options/ # Settings/options page
+ options.html
+ options.css
+ options.ts
 ```
 
 ## Next Implementation Steps
@@ -132,51 +132,59 @@ src/
 ### Phase 2: Core Infrastructure (Current Phase)
 
 1. **Storage Service** (`src/background/storageService.ts`)
-   - Implement profile storage with encryption
-   - Add get/set/update methods
-   - Handle settings persistence
+
+- Implement profile storage with encryption
+- Add get/set/update methods
+- Handle settings persistence
 
 2. **Message Passing** (`src/common/messaging.ts`)
-   - Create helper functions for message sending
-   - Type-safe message handlers
-   - Request/response patterns
+
+- Create helper functions for message sending
+- Type-safe message handlers
+- Request/response patterns
 
 3. **Testing Setup**
-   - Create test fixtures
-   - Set up browser API mocks
-   - Write first unit tests
+
+- Create test fixtures
+- Set up browser API mocks
+- Write first unit tests
 
 ### Phase 3: Form Detection & Classification
 
 1. **Form Detector** (`src/content/formDetector.ts`)
-   - Scan DOM for form fields
-   - Extract field metadata
-   - Handle dynamic forms with MutationObserver
+
+- Scan DOM for form fields
+- Extract field metadata
+- Handle dynamic forms with MutationObserver
 
 2. **Field Classifier** (`src/content/classifier.ts`)
-   - Implement heuristic rules
-   - Confidence scoring
-   - Pattern matching for field types
+
+- Implement heuristic rules
+- Confidence scoring
+- Pattern matching for field types
 
 ### Phase 4: Autofill Engine
 
 1. **Autofill Engine** (`src/content/autofillEngine.ts`)
-   - Fill fields with profile data
-   - Trigger synthetic events
-   - Handle edge cases
-   - Undo functionality
+
+- Fill fields with profile data
+- Trigger synthetic events
+- Handle edge cases
+- Undo functionality
 
 ### Phase 5: UI Enhancement
 
 1. **Inline Button** (`src/content/uiInjector.ts`)
-   - Detect forms and inject button
-   - Position button appropriately
-   - Handle clicks and trigger autofill
+
+- Detect forms and inject button
+- Position button appropriately
+- Handle clicks and trigger autofill
 
 2. **Profile Management UI**
-   - Connect forms to storage
-   - Validate inputs
-   - Export/import functionality
+
+- Connect forms to storage
+- Validate inputs
+- Export/import functionality
 
 ## Debugging Tips
 
@@ -223,4 +231,4 @@ src/
 
 ---
 
-Happy coding! 🚀
+Happy coding!

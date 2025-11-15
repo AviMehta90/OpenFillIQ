@@ -148,12 +148,12 @@ import { helperFunction } from './utils';
 Always use explicit return types for exported functions:
 
 ```typescript
-// ✅ Good
+// Good
 export function saveProfile(profile: UserProfile): Promise<void> {
   // ...
 }
 
-// ❌ Avoid
+// Avoid
 export function saveProfile(profile: UserProfile) {
   // ...
 }
@@ -222,6 +222,26 @@ If TypeScript complains:
 2. Ensure types are imported correctly
 3. Check `tsconfig.json` for configuration
 
+## Documentation Style
+
+### Markdown Files
+
+When writing documentation (README, guides, etc.):
+
+- **No emojis** - Keep documentation professional and text-based
+- Use **bold** for emphasis instead of emojis
+- Use standard markdown headers (##, ###)
+- Include code blocks with proper syntax highlighting
+- Use lists for clarity
+- Keep line length reasonable (100-120 characters)
+
+### Comments in Code
+
+- Use clear, descriptive comments
+- Explain "why", not "what" (code should be self-explanatory)
+- Use JSDoc for exported functions
+- No emojis in code comments
+
 ## Questions?
 
 If you have questions about code style, check:
@@ -232,4 +252,4 @@ If you have questions about code style, check:
 
 ---
 
-**Remember**: The goal is consistency, not perfection. Let the tools handle formatting so you can focus on writing great code! 🚀
+**Remember**: The goal is consistency, not perfection. Let the tools handle formatting so you can focus on writing great code!

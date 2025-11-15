@@ -8,28 +8,28 @@ Thank you for your interest in contributing to OpenFillIQ! This document provide
 
 2. **Clone your fork**:
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/openFillIQ.git
-   cd openFillIQ
-   ```
+```bash
+git clone https://github.com/YOUR_USERNAME/openFillIQ.git
+cd openFillIQ
+```
 
 3. **Add upstream remote**:
 
-   ```bash
-   git remote add upstream https://github.com/AviMehta90/openFillIQ.git
-   ```
+```bash
+git remote add upstream https://github.com/AviMehta90/openFillIQ.git
+```
 
 4. **Install dependencies**:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 5. **Create a branch**:
 
-   ```bash
-   git checkout -b feature/your-feature
-   ```
+```bash
+git checkout -b feature/your-feature
+```
 
 6. Make your changes
 7. Run tests: `npm test`
@@ -95,4 +95,4 @@ Thank you for your interest in contributing to OpenFillIQ! This document provide
 
 Feel free to open an issue for questions or reach out to maintainers.
 
-Thank you for contributing! 🎉
+Thank you for contributing!

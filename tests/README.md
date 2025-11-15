@@ -6,12 +6,12 @@ This directory contains unit and integration tests for OpenFillIQ.
 
 ```
 tests/
-├── unit/              # Unit tests for individual modules
-│   ├── common/       # Tests for common utilities
-│   ├── content/      # Tests for content scripts
-│   └── background/   # Tests for background worker
-├── integration/      # Integration tests
-└── fixtures/         # Test fixtures and mock data
+ unit/ # Unit tests for individual modules
+ common/ # Tests for common utilities
+ content/ # Tests for content scripts
+ background/ # Tests for background worker
+ integration/ # Integration tests
+ fixtures/ # Test fixtures and mock data
 ```
 
 ## Running Tests
